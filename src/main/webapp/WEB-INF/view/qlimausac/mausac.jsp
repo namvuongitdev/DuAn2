@@ -58,7 +58,7 @@
                     <tbody>
                     <c:forEach items="${list.getContent()}" var="mau" varStatus="i">
                         <tr>
-                            <th scope="row">${i.index+1}</th>
+                            <th scope="row">${i.index + page}</th>
                             <td>${mau.ten}</td>
                             <td>${mau.trangThai}</td>
                             <td>

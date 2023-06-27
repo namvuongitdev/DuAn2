@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import java.util.UUID;
 
 @Controller
 @RequestMapping("mausac")
 public class MauSacController {
+
     @Autowired
     IMauSacService iMauSacService;
     Page<MauSac> list;
@@ -25,7 +25,7 @@ public class MauSacController {
     @GetMapping("/hienthi")
     String getSideBar(@RequestParam(defaultValue = "1") int page, Model model) {
         if (page < 1) page = 1;
-        Pageable pageable = PageRequest.of(page - 1, 1);
+        Pageable pageable = PageRequest.of(page - 1, 3);
         list = iMauSacService.findAll(pageable);
         model.addAttribute("list", list);
         return "qlimausac/mausac";
