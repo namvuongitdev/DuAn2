@@ -1,18 +1,21 @@
 package com.example.web.repository;
-import com.example.web.model.MauSac;
+
+import com.example.web.model.FormDang;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.UUID;
 
-public interface IMauSacRepository extends JpaRepository<MauSac, UUID> {
-
+public interface IFormDangRepository extends JpaRepository<FormDang, UUID> {
     @Transactional
     @Modifying
-    @Query(value = "DELETE from MauSac where id =?1", nativeQuery = true)
+    @Query(value = "DELETE from FormDang where id =?1", nativeQuery = true)
     void delele(UUID id);
 
-    @Query(value = "Select * from MauSac where id=?1",nativeQuery = true)
-    MauSac getOne(UUID id);
+    @Query(value = "Select * from FormDang where id=?1",nativeQuery = true)
+    FormDang getOne(UUID id);
+
+
 }

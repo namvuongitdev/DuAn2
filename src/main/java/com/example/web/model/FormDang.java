@@ -11,22 +11,22 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @ToString
-@Entity
-@Table(name = "mausac")
-public class MauSac {
 
+@Entity
+@Table(name = "formdang")
+public class FormDang {
     @Id
     @GeneratedValue(generator = "UUID")
     @Column(name = "id")
     private UUID id;
 
     @Column(name = "ten")
-    private String ten;
+    String ten;
 
     @Column(name = "trangthai")
-    private Integer trangThai;
+    Integer trangThai;
 
-    public MauSac(String ten, Integer trangThai) {
+    public FormDang(String ten, Integer trangThai) {
         this.ten = ten;
         this.trangThai = trangThai;
     }

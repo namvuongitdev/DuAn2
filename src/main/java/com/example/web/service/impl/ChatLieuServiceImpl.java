@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -36,5 +37,15 @@ public class ChatLieuServiceImpl implements IChatLieuService {
           return chatLieu.get();
       }
         return null;
+    }
+
+    @Override
+    public ChatLieu getOne(UUID id) {
+        return chatLieuRepository.getOne(id);
+    }
+
+    @Override
+    public List<ChatLieu> getAll() {
+        return chatLieuRepository.findAll();
     }
 }

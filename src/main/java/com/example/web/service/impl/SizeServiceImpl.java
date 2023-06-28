@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class SizeServiceImpl implements SizeService {
@@ -24,6 +25,11 @@ public class SizeServiceImpl implements SizeService {
     @Override
     public Size getOne(String id) {
         return sizeRepository.getReferenceById(id);
+    }
+
+    @Override
+    public Size getOne1(UUID id) {
+        return sizeRepository.getOne1(id);
     }
 
     @Override
@@ -46,4 +52,6 @@ public class SizeServiceImpl implements SizeService {
         Pageable pageable = PageRequest.of(pageNo, size);
         return sizeRepository.findAll(pageable);
     }
+
+
 }

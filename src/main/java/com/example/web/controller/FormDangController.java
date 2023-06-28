@@ -1,7 +1,7 @@
 package com.example.web.controller;
 
-import com.example.web.model.MauSac;
-import com.example.web.service.IMauSacService;
+import com.example.web.model.FormDang;
+import com.example.web.service.IFormDangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,36 +13,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @Controller
-@RequestMapping("mausac")
-public class MauSacController {
+@RequestMapping("formdang")
+public class FormDangController {
+
+    Page<FormDang> list;
     @Autowired
-    IMauSacService iMauSacService;
-    Page<MauSac> list;
+    IFormDangService iFormDangService;
 
     @GetMapping("/hienthi")
-    String getSideBar(@RequestParam(defaultValue = "1") int page, Model model) {
+    String getSideBar(@RequestParam(defaultValue = "1") Integer page, Model model) {
         if (page < 1) page = 1;
         Pageable pageable = PageRequest.of(page - 1, 5);
-        list = iMauSacService.findAll(pageable);
+        list = iFormDangService.findAll(pageable);
         model.addAttribute("list", list);
         model.addAttribute("pageNo", page);
         model.addAttribute("page", page != 1 ? page * 5 - 4 : page);
-        return "qlimausac/mausac";
+        return "formdang/formdang";
     }
 
     @GetMapping("/delete/{id}")
     String delete(@PathVariable(name = "id") String id) {
-        iMauSacService.deleteById(UUID.fromString(id));
-        return "redirect:/mausac/hienthi";
+        iFormDangService.deleteById(UUID.fromString(id));
+        return "redirect:/formdang/hienthi";
     }
 
     @PostMapping("/add")
     String add(@RequestParam(name = "ten") String ten,
                @RequestParam(name = "trangthai") String trangthai, Model model) {
-        MauSac mauSac = new MauSac(ten, Integer.parseInt(trangthai));
-        MauSac mauSac1 = iMauSacService.save(mauSac);
+        FormDang formDang = new FormDang(ten, Integer.parseInt(trangthai));
+        FormDang formDang1 = iFormDangService.save(formDang);
         //hiển thị
-        return "redirect:/mausac/hienthi";
+        return "redirect:/formdang/hienthi";
     }
 
     @PostMapping("/update")
@@ -50,11 +51,13 @@ public class MauSacController {
                   @RequestParam(name = "ten") String ten,
                   @RequestParam(name = "trangthai") String trangthai
     ) {
-        MauSac mauSac = iMauSacService.getOne(UUID.fromString(id));
-        mauSac.setTen(ten);
-        mauSac.setTrangThai(Integer.parseInt(trangthai));
-        MauSac mauSac1 = iMauSacService.save(mauSac);
+        FormDang formDang = iFormDangService.getOne(UUID.fromString(id));
+        formDang.setTen(ten);
+        formDang.setTrangThai(Integer.parseInt(trangthai));
+        FormDang formDang1 = iFormDangService.save(formDang);
 
-        return "redirect:/mausac/hienthi";
+        return "redirect:/formdang/hienthi";
     }
+
+
 }

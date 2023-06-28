@@ -28,7 +28,7 @@
                     </div>
                 </nav>
                 <hr>
-                <div style="margin-left: 460px"><font color="#696969"><h5>THÊM SIZE</h5></font></div>
+                <div style="margin-left: 460px"><font color="#696969"><h5>CẬP NHẬT SIZE</h5></font></div>
                 <%--@elvariable id="size" type=""--%>
                 <form:form method="post" action="/size/update/${size.id}" modelAttribute="size">
                     Tên size :<form:input path="ten" class="form-control" type="text"/><br>
@@ -37,7 +37,9 @@
                     <form:button type="submit" class="btn btn-info text-white" style="margin-left: 900px;border-top-left-radius: 20px;
                                     border-bottom-left-radius: 20px;
                                     border-bottom-right-radius: 20px;
-                                    border-top-right-radius: 20px">
+                                    border-top-right-radius: 20px"
+                                 onclick="alert('Cập nhật thành công!')"
+                    >
                         Xác
                         Nhận
                     </form:button>

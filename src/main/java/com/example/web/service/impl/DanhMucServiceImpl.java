@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class DanhMucServiceImpl implements DanhMucService {
@@ -24,6 +25,11 @@ public class DanhMucServiceImpl implements DanhMucService {
     @Override
     public DanhMuc getOne(String id) {
         return danhMucRepository.getReferenceById(id);
+    }
+
+    @Override
+    public DanhMuc getOne1(UUID id) {
+        return danhMucRepository.getOne1(id);
     }
 
     @Override

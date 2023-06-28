@@ -37,8 +37,9 @@
                     <form:button type="submit" class="btn btn-info text-white" style="margin-left: 900px;border-top-left-radius: 20px;
                                     border-bottom-left-radius: 20px;
                                     border-bottom-right-radius: 20px;
-                                    border-top-right-radius: 20px;background: #29B5D4;text-decoration-color: #FFFFFF" onclick="if(confirm('Bạn có chắc chắn muốn thêm không?')){window.location.href = '/size/add';}
-                                                else{alert('Dữ liệu không được thêm!')}">
+                                    border-top-right-radius: 20px;background: #29B5D4;text-decoration-color: #FFFFFF"
+                                 onclick="alert('Thêm thành công!')
+                                                ">
                         Xác
                         Nhận
                     </form:button>

@@ -28,7 +28,7 @@
                     </div>
                 </nav>
                 <hr>
-                <div style="margin-left: 460px"><font color="#696969"><h5>THÊM Chất liệu</h5></font></div>
+                <div style="margin-left: 460px"><font color="#696969"><h5>THÊM CHẤT LIỆU</h5></font></div>
                 <%--@elvariable id="chatLieu" type=""--%>
                 <form:form method="post" action="/chat-lieu/add" modelAttribute="chatLieu">
                     Tên chất liệu :<form:input path="ten" class="form-control" type="text"/><br>
