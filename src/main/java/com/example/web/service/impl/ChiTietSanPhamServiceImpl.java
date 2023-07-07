@@ -31,4 +31,9 @@ public class ChiTietSanPhamServiceImpl implements IChiTietSanPhamService {
     public ChiTietSanPham getOne(UUID id) {
         return iChiTietSanPhamRepository.getOne(id);
     }
+
+    @Override
+    public Page<ChiTietSanPham> get(UUID id, Pageable pageable) {
+        return iChiTietSanPhamRepository.get(id, pageable);
+    }
 }

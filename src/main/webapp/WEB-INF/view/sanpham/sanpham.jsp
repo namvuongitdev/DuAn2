@@ -10,6 +10,7 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>
 
+
 </head>
 <body>
 <%--navbar--%>
@@ -27,93 +28,15 @@
                     </div>
                 </nav>
                 <hr>
-                <div style="margin-left: 460px"><font color="#696969"><h5>THÊM SẢN PHẨM</h5></font></div>
                 <form>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="well">
-                                <p style="margin-left: 10px">Tên sản phẩm :</p>
-                                <input name="ten" class="form-control"
-                                       type="text" style="margin-left: 10px;width: 500px" value="${sp.ten}">
-                                <p style="margin-left: 10px">Mô Tả :</p>
-
-                                <textarea name="moTa" class="form-control" placeholder="Mời bạn nhập mô tả"
-                                          style="width: 500px;height: 120px">${sp.moTa}</textarea>
-
-                                <p style="margin-left: 10px">Trạng thái :</p>
-                                <input type="radio" style="margin-left: 60px" name="trangthai" value="1"
-                                       checked="checked" ${sp.trangThai==1?"checked":""}>
-                                Kích
-                                Hoạt
-                                <br>
-                                <input type="radio" style="margin-left: 60px" name="trangthai" value="0" ${sp.trangThai==0?"checked":""}> Ngừng Kích
-                                Hoạt
-                                <br>
-                            </div>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="well" style="margin-left: 250px">
-                                <p>Ngày Tạo :</p>
-                                <input type="date" name="ngaytao" value="${sp.ngayTao}"/>
-                                <p>Giá Nhập :</p>
-                                <input name="gianhap" class="form-control"
-                                       type="text" style="width: 500px" value="${sp.giaNhap}">
-                                <p>Giá Bán :</p>
-                                <input name="giaban" class="form-control"
-                                       type="text" style="width: 500px" value="${sp.giaBan}">
-                                <p>Kiểu Dáng :</p>
-                                <select name="form" onchange="getTen(this.value)">
-                                    <option>Tên Kiểu Dáng</option>
-                                    <c:forEach items="${listForm}" var="form">
-                                        <option value="${form.id}" ${sp.formDang.id.equals(form.id)?"selected":""}>${form.id}</option>
-                                    </c:forEach>
-                                </select>
-                                <div id="ten" style="color: cadetblue"></div>
-                                <p>Chất Liệu :</p>
-                                <select name="chat" onchange="chatLieu(this.value)">
-                                    <option>Tên Chất Liệu</option>
-                                    <c:forEach items="${listChat}" var="chat">
-                                        <option value="${chat.id}" ${sp.chatLieu.id.equals(form.id)?"selected":""}>${chat.id}</option>
-                                    </c:forEach>
-                                </select>
-                                <div id="chatlieu" style="color: cadetblue"></div>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <script>
-                        function getTen(id) {
-                            fetch('/sanpham/layten/' + id)
-                                .then(response => response.json())
-                                .then(data => {
-                                    document.getElementById("ten").innerHTML = data.ten;
-                                });
-                        }
-
-                        function chatLieu(id) {
-                            fetch('/sanpham/chatlieu/' + id)
-                                .then(response => response.json())
-                                .then(data => {
-                                    document.getElementById("chatlieu").innerHTML = data.ten;
-                                });
-                        }
-
-
-                    </script>
-
                     <button type="submit" class="btn btn-info" style="margin-left: 900px;border-top-left-radius: 20px;
                             border-bottom-left-radius: 20px;
                             border-bottom-right-radius: 20px;
                             border-top-right-radius: 20px"
-                            formmethod="post"
-                            formaction="/sanpham/add"
-                            onclick="alert('Thêm thành công!') ">
-                        Xác
-                        Nhận
+                            formaction="/sanpham/viewadd"
+                            >
+                      Thêm Mới Sản Phẩm
                     </button>
-
                     <table class="table">
                         <thead>
                         <tr>
@@ -140,14 +63,13 @@
                                 <td>${sp.formDang.ten}</td>
                                 <td>${sp.chatLieu.ten}</td>
                                 <td>
-                                    <button type="submit" class="btn btn-info"
+                                    <button type="button" class="btn btn-info"
                                             style="border-top-left-radius: 20px;
                                         border-bottom-left-radius: 20px;
                                         border-bottom-right-radius: 20px;
-                                        border-top-right-radius: 20px;background: lawngreen" ;
-                                            formmethod="post" formaction="/sanpham/update?id=${sp.id}"
-                                            onclick="alert('Cập nhật thành công!') ">Update
+                                        border-top-right-radius: 20px;background: #03AA28" ><a class="text-white" style="text-decoration: none" href="/sanpham/viewupdate?id=${sp.id}">Update</a>
                                     </button>
+
 
                                 </td>
                             </tr>

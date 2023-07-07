@@ -21,4 +21,7 @@ public interface IChatLieuRepository extends JpaRepository<ChatLieu , UUID> {
 
     @Query(value = "Select * from ChatLieu where id=?1",nativeQuery = true)
     ChatLieu getOne(UUID id);
+
+//    @Query(value = "Select * from ChatLieu where ten like ?1",nativeQuery = true)
+    Page<ChatLieu> findByTenContains(String ten,Pageable pageable);
 }

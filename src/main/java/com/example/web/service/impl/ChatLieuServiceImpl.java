@@ -1,4 +1,5 @@
 package com.example.web.service.impl;
+
 import com.example.web.model.ChatLieu;
 import com.example.web.repository.IChatLieuRepository;
 import com.example.web.service.IChatLieuService;
@@ -27,15 +28,15 @@ public class ChatLieuServiceImpl implements IChatLieuService {
 
     @Override
     public void saveChatLieu(ChatLieu chatLieu) {
-          chatLieuRepository.save(chatLieu);
+        chatLieuRepository.save(chatLieu);
     }
 
     @Override
     public ChatLieu getChatLieu(UUID id) {
-      Optional<ChatLieu> chatLieu =  chatLieuRepository.findById(id);
-      if(chatLieu.isPresent()){
-          return chatLieu.get();
-      }
+        Optional<ChatLieu> chatLieu = chatLieuRepository.findById(id);
+        if (chatLieu.isPresent()) {
+            return chatLieu.get();
+        }
         return null;
     }
 
@@ -48,4 +49,13 @@ public class ChatLieuServiceImpl implements IChatLieuService {
     public List<ChatLieu> getAll() {
         return chatLieuRepository.findAll();
     }
+
+    @Override
+    public Page<ChatLieu> getTen(String ten, Integer page, Integer pageSize) {
+        Pageable pageable = PageRequest.of(page - 1, pageSize);
+        Page<ChatLieu> chatLieus = chatLieuRepository.findByTenContains(ten,pageable);
+        return chatLieus;
+    }
+
+
 }

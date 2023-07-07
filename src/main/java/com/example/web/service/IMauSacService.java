@@ -1,4 +1,5 @@
 package com.example.web.service;
+
 import com.example.web.model.MauSac;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,4 +18,7 @@ public interface IMauSacService {
     MauSac getOne(UUID id);
 
     List<MauSac> getAll();
+
+    Page<MauSac> findByTenContains(String ten, Pageable pageable);
+
 }

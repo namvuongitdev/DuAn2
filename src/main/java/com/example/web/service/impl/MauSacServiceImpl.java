@@ -43,5 +43,10 @@ public class MauSacServiceImpl implements IMauSacService {
         return mauSacRepository.findAll();
     }
 
+    @Override
+    public Page<MauSac> findByTenContains(String ten, Pageable pageable) {
+        return mauSacRepository.findByTenContains(ten, pageable);
+    }
+
 
 }

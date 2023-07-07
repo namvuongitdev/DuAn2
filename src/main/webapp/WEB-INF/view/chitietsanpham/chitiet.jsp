@@ -54,25 +54,52 @@
                                 <select name="mau" onchange="getMau(this.value)">
                                     <option>Màu Sắc</option>
                                     <c:forEach items="${listMau}" var="mau">
-                                        <option value="${mau.id}">${mau.ten}</option>
+                                        <option value="${mau.id}" ${idmau==mau.id?"selected":""}>${mau.ten}</option>
                                     </c:forEach>
                                 </select>
+                                <%--                                thêm nhanh màu sắc --%>
+                                <button type="submit" class="btn btn-primary" title="Thêm mới màu sắc" formmethod="get"
+                                        formaction="/chi-tiet-san-pham/view-mau-sac/${idsp}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                    </svg>
+                                </button>
                                 <div id="mau" style="color: cadetblue"></div>
                                 <p>Size :</p>
                                 <select name="size" onchange="getSize(this.value)">
                                     <option>Size</option>
                                     <c:forEach items="${listSize}" var="size">
-                                        <option value="${size.id}">${size.ten}</option>
+                                        <option value="${size.id}" ${idsize==size.id?"selected":""}>${size.ten}</option>
                                     </c:forEach>
                                 </select>
+                                <%--                                thêm nhanh size --%>
+                                <button type="submit" class="btn btn-primary" title="Thêm mới size" formmethod="get"
+                                        formaction="/chi-tiet-san-pham/view-size/${idsp}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                    </svg>
+                                </button>
                                 <div id="size" style="color: cadetblue"></div>
                                 <p>Danh Mục :</p>
                                 <select name="danhmuc" onchange="getDanh(this.value)">
                                     <option>Danh Mục</option>
                                     <c:forEach items="${listDanh}" var="danh">
-                                        <option value="${danh.id}">${danh.ten}</option>
+                                        <option value="${danh.id}" ${iddanhmuc==danh.id?"selected":""}>${danh.ten}</option>
                                     </c:forEach>
                                 </select>
+                                <%--                                thêm nhanh danh mục --%>
+                                <button type="submit" class="btn btn-primary" title="Thêm mới danh mục" formmethod="get"
+                                        formaction="/chi-tiet-san-pham/view-danh-muc/${idsp}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                    </svg>
+                                </button>
                                 <div id="danh" style="color: cadetblue"></div>
 
                             </div>
@@ -147,7 +174,9 @@
                                             style="border-top-left-radius: 20px;
                                         border-bottom-left-radius: 20px;
                                         border-bottom-right-radius: 20px;
-                                        border-top-right-radius: 20px;background: #03AA28" ><a class="text-white" style="text-decoration: none" href="/chi-tiet-san-pham/viewupdate?id=${sp.id}">Update</a>
+                                        border-top-right-radius: 20px;background: #03AA28"><a class="text-white"
+                                                                                              style="text-decoration: none"
+                                                                                              href="/chi-tiet-san-pham/viewupdate?id=${sp.id}">Update</a>
                                     </button>
 
 
@@ -164,14 +193,15 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
                             <li class="page-item ${pageNo<=1?"disabled":""}"><a class="page-link"
-                                                                                href="/chi-tiet-san-pham/hien-thi?page=${pageNo-1}">Previous</a>
+                                                                                href="/chi-tiet-san-pham/hien-thi?idsp=${idsp}&page=${pageNo-1}">Previous</a>
                             </li>
                             <c:forEach begin="1" end="${list.getTotalPages()}" var="i">
                                 <li class="page-item"><a class="page-link ${i == pageNo ? 'active ' : ''}"
-                                                         href="/chi-tiet-san-pham/hien-thi?page=${i}">${i}</a></li>
+                                                         href="/chi-tiet-san-pham/hien-thi?idsp=${idsp}&page=${i}">${i}</a>
+                                </li>
                             </c:forEach>
                             <li class="page-item ${pageNo>=list.getTotalPages()?"disabled":""}"><a class="page-link"
-                                                                                                   href="/chi-tiet-san-pham/hien-thi?page=${pageNo+1}">Next</a>
+                                                                                                   href="/chi-tiet-san-pham/hien-thi?idsp=${idsp}&page=${pageNo+1}">Next</a>
                             </li>
                         </ul>
                     </nav>

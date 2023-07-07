@@ -53,5 +53,15 @@ public class SizeServiceImpl implements SizeService {
         return sizeRepository.findAll(pageable);
     }
 
+    @Override
+    public Page<Size> findAll(Pageable pageable) {
+        return sizeRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Size> findByTenContains(String ten, Pageable pageable) {
+        return sizeRepository.findByTenContains(ten,pageable);
+    }
+
 
 }

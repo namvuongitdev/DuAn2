@@ -113,7 +113,7 @@
                             border-bottom-right-radius: 20px;
                             border-top-right-radius: 20px"
                             formmethod="post"
-                            formaction="/chi-tiet-san-pham/update?id=${sp.id}"
+                            formaction="/chi-tiet-san-pham/update?id=${sp.id}&idsp=${sp.sanPham.id}"
                             onclick="alert('Cập nhật thành công!') ">
                         Xác
                         Nhận

@@ -52,4 +52,14 @@ public class DanhMucServiceImpl implements DanhMucService {
         Pageable pageable = PageRequest.of(pageNo, size);
         return danhMucRepository.findAll(pageable);
     }
+
+    @Override
+    public Page<DanhMuc> findByTenContains(String ten, Pageable pageable) {
+        return danhMucRepository.findByTenContains(ten,pageable);
+    }
+
+    @Override
+    public Page<DanhMuc> findAll(Pageable pageable) {
+        return danhMucRepository.findAll(pageable);
+    }
 }

@@ -20,7 +20,7 @@ public class MauSacController {
     Page<MauSac> list;
 
     @GetMapping("/hienthi")
-    String getSideBar(@RequestParam(defaultValue = "1") int page, Model model) {
+    String hienThi(@RequestParam(defaultValue = "1") int page, Model model) {
         if (page < 1) page = 1;
         Pageable pageable = PageRequest.of(page - 1, 5);
         list = iMauSacService.findAll(pageable);

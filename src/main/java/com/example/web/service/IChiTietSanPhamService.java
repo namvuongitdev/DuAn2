@@ -12,4 +12,6 @@ public interface IChiTietSanPhamService {
     ChiTietSanPham save(ChiTietSanPham sanPham);
 
     ChiTietSanPham getOne(UUID id);
+
+    Page<ChiTietSanPham> get(UUID id, Pageable pageable);
 }

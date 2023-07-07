@@ -17,4 +17,6 @@ public interface IFormDangService {
     FormDang getOne(UUID id);
 
     List<FormDang> getAll();
+
+    Page<FormDang> getTen(String ten, Pageable pageable);
 }

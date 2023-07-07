@@ -21,7 +21,7 @@ public class FormDangController {
     IFormDangService iFormDangService;
 
     @GetMapping("/hienthi")
-    String getSideBar(@RequestParam(defaultValue = "1") Integer page, Model model) {
+    String hienthi(@RequestParam(defaultValue = "1") Integer page, Model model) {
         if (page < 1) page = 1;
         Pageable pageable = PageRequest.of(page - 1, 5);
         list = iFormDangService.findAll(pageable);
@@ -38,8 +38,9 @@ public class FormDangController {
     }
 
     @PostMapping("/add")
-    String add(@RequestParam(name = "ten") String ten,
-               @RequestParam(name = "trangthai") String trangthai, Model model) {
+    String add(
+               @RequestParam(name = "trangthai") String trangthai,
+               @RequestParam(name = "ten") String ten,Model model) {
         FormDang formDang = new FormDang(ten, Integer.parseInt(trangthai));
         FormDang formDang1 = iFormDangService.save(formDang);
         //hiển thị

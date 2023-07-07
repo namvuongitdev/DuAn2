@@ -40,4 +40,9 @@ public class FormDangServiceImpl implements IFormDangService {
     public List<FormDang> getAll() {
         return iFormDangRepository.findAll();
     }
+
+    @Override
+    public Page<FormDang> getTen(String ten, Pageable pageable) {
+        return iFormDangRepository.getTen(ten,pageable);
+    }
 }
