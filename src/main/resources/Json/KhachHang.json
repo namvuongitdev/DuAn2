@@ -1,0 +1,24 @@
+[
+  {
+    "id": "4C54AB53-558A-497A-A1DF-8C317F094FEB",
+    "hoTen": "Do Anh Tuan",
+    "email": "tuanda@gmail.com",
+    "trangThai": 0,
+    "taiKhoan": "tuanda",
+    "matKhau": null,
+    "ngayTao": 1688749200000,
+    "sdt": null,
+    "diaChi": null
+  },
+  {
+    "id": "FDEC067C-187F-4D65-8E90-D543BC882602",
+    "hoTen": "Cao Minh Tien",
+    "email": "tiencmph25165@fpt.edu.vn",
+    "trangThai": 0,
+    "taiKhoan": "tiencm",
+    "matKhau": null,
+    "ngayTao": null,
+    "sdt": null,
+    "diaChi": null
+  }
+]

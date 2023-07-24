@@ -41,7 +41,7 @@
                     <br>
                     <input type="radio" style="margin-left: 60px" name="trangthai" value="0"> Ngừng Kích Hoạt
                     <br>
-                    <button type="submit" class="btn btn-info" style="margin-left: 900px;border-top-left-radius: 20px;
+                    <button type="submit" class="btn btn-info text-white" style="margin-left: 900px;border-top-left-radius: 20px;
                             border-bottom-left-radius: 20px;
                             border-bottom-right-radius: 20px;
                             border-top-right-radius: 20px"
@@ -66,7 +66,7 @@
                                 <td>${form.ten}</td>
                                 <td>${form.trangThai==1?"Kích Hoạt":"Ngừng Kích Hoạt"}</td>
                                 <td>
-                                    <button type="submit" class="btn btn-info"
+                                    <button type="submit" class="btn btn-info text-white"
                                             style="border-top-left-radius: 20px;
                                         border-bottom-left-radius: 20px;
                                         border-bottom-right-radius: 20px;
@@ -75,7 +75,7 @@
                                             onclick="alert('Cập nhật thành công!') ">Update
 
                                     </button>
-                                    <button type="button" class="btn btn-info"
+                                    <button type="button" class="btn btn-info text-white"
                                             style="margin-left: 10px;border-top-left-radius: 20px;
                                         border-bottom-left-radius: 20px;
                                         border-bottom-right-radius: 20px;
