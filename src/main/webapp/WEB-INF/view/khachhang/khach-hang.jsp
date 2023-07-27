@@ -89,23 +89,13 @@
                             <td>${kh.ngayTao}</td>
                             <td>${kh.trangThai==0?"Kích hoạt":"Ngừng kích hoạt"}</td>
                             <td>
-                                <button type="button" class="btn btn-info" style="border-top-left-radius: 20px;
-                                        border-bottom-left-radius: 20px;
-                                        border-bottom-right-radius: 20px;
-                                        border-top-right-radius: 20px;background: #03AA28"><a class="text-white"
-                                                                                              style="text-decoration: none"
-                                                                                              href="/khach-hang/view-update/${kh.id}">Update</a>
-
-                                </button>
-                                <button type="button" class="btn btn-info text-white" style="margin-left: 10px;border-top-left-radius: 20px;
-                                        border-bottom-left-radius: 20px;
-                                        border-bottom-right-radius: 20px;
-                                        border-top-right-radius: 20px;background: #E43535"
-                                        onclick="if(confirm('Bạn có chắc chắn muốn xoá không?')){
+                                <a class="text-success fw-bold" style="text-decoration: none" href="/khach-hang/view-update/${kh.id}">SỬA</a>
+                                &emsp;
+                                <a class="text-danger fw-bold" style="text-decoration: none" onclick="if(confirm('Bạn có chắc chắn muốn xoá không?')){
                                                 window.location.href = '/khach-hang/delete/${kh.id}';
                                                 }
-                                                else{alert('Dữ liệu không được xoá!')}">Remove
-                                </button>
+                                                else{alert('Dữ liệu không được xoá!')}">XÓA
+                                </a>
                             </td>
                         </tr>
                     </c:forEach>

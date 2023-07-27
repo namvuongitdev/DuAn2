@@ -23,18 +23,40 @@
             <%--            code giao diện size --%>
             <div class="container-fluid">
                 <div class="row">
-                    <h3 class="text-center" >Tạo tài khoản khách hàng</h3>
+                    <h3 class="text-center" style="margin-bottom: 30px">Tạo Tài Khoản Khách Hàng</h3>
                 </div>
-                <div class="row ">
-                    <%--@elvariable id="khachHang" type=""--%>
-                    <form:form class="text-center" modelAttribute="khachHang" action="/khach-hang/add" method="post">
-                        Tên tài khoản&nbsp;&nbsp;<form:input style="width: 755px;height: 54px" path="taiKhoan" class="rounded-3 mt-5"/><form:errors path="taiKhoan" cssStyle="color: red"/><br>
-                        Họ và tên&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<form:input path="hoTen" style="width: 755px;height: 54px" class="rounded-3 mt-5"/><form:errors path="hoTen" cssStyle="color: red"/><br>
-                        Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<form:input path="email" style="width: 755px;height: 54px" class="rounded-3 mt-5"/><form:errors path="email" cssStyle="color: red"/><br>
-                        <form:button style="background:#0BA3E5;width: 108px;height: 36px;margin-left: 700px" class="rounded-3 mt-5"  type="submit" onclick="if(confirm('Bạn có chắc chắn muốn thêm không?')){window.location.href = '/khach-hang/adđ';}
+                <%--@elvariable id="khachHang" type=""--%>
+                <form:form class="row g-3" modelAttribute="khachHang" action="/khach-hang/add" method="post">
+                    <%--row1--%>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <label class="fw-bold">Tên tài khoản</label>
+                        <form:input path="taiKhoan" type="text" class="form-control"/>
+                        <form:errors path="taiKhoan" cssStyle="color: red"/>
+                    </div>
+                    <div class="col-md-2"></div>
+
+                    <%--row2--%>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <label class="fw-bold">Họ và tên</label>
+                        <form:input path="hoTen" type="text" class="form-control"/>
+                        <form:errors path="hoTen" cssStyle="color: red"/>
+                    </div>
+                    <div class="col-md-2"></div>
+
+                    <%--row3--%>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <label class="fw-bold">Email</label>
+                        <form:input path="email" type="text" class="form-control"/>
+                        <form:errors path="email" cssStyle="color: red"/>
+                    </div>
+                    <div class="col-md-2"></div>
+
+                    <form:button style="background:#0BA3E5;width: 108px;height: 36px;margin-left: 900px" class="rounded-3 mt-5"  type="submit" onclick="if(confirm('Bạn có chắc chắn muốn thêm không?')){window.location.href = '/khach-hang/adđ';}
                                                 else{alert('Dữ liệu không được thêm!')}">Xác nhận</form:button>
-                    </form:form>
-                </div>
+                </form:form>
             </div>
         </div>
     </div>

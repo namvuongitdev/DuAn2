@@ -23,44 +23,67 @@
             <%--            code giao diện khách hàng --%>
             <div class="container-fluid">
                 <div class="row">
-                    <h3 class="text-center" >Cập nhật thông tin</h3>
+                    <h3 class="text-center" style="margin-bottom: 30px">Cập Nhật Thông Tin</h3>
                 </div>
                     <%--@elvariable id="khachHang" type=""--%>
-                    <form:form class="text-center" modelAttribute="khachHang" action="/khach-hang/update/${khachHang.id}" method="post">
-                        <div class="row">
-                            <div class="col-6">
-                                <label style="font-weight: bold;font-size: 15px;font-family: 'Inter', sans-serif;">Tên tài khoản</label>&nbsp;<form:input style="width: 361px;height: 46px" readonly="true" path="taiKhoan" class="rounded-3 mt-5"/><form:errors path="taiKhoan" cssStyle="color: red"/>
-                            </div>
-                            <div class="col-6">
-                                <label style="font-weight: bold;font-size: 15px;font-family: 'Inter', sans-serif;">Số điện thoại</label>&nbsp;<form:input path="sdt" style="width: 361px;height: 46px" class="rounded-3 mt-5"/>
-                            </div>
+                    <form:form class="row g-3" modelAttribute="khachHang" action="/khach-hang/update/${khachHang.id}" method="post">
+                        <%--row1--%>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <label class="fw-bold">Tên tài khoản</label>
+                            <form:input readonly="true" path="taiKhoan" type="text" class="form-control"/>
+                            <form:errors path="taiKhoan" cssStyle="color: #ff0000"/>
                         </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <label style="font-weight: bold;font-size: 15px;font-family: 'Inter', sans-serif;">Họ và tên</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<form:input path="hoTen" readonly="true" style="width: 361px;height: 46px" class="rounded-3 mt-5"/>
-                            </div>
-                            <div class="col-6">
-                                <label style="font-weight: bold;font-size: 15px;font-family: 'Inter', sans-serif;">Địa chỉ</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<form:input path="diaChi" style="width: 361px;height: 46px" class="rounded-3 mt-5"/>
-                            </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <label class="fw-bold">Số điện thoại</label>
+                            <form:input path="sdt" type="text" class="form-control"/>
                         </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <label style="font-weight: bold;font-size: 15px;font-family: 'Inter', sans-serif;">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<form:input readonly="true" path="email" style="width: 361px;height: 46px;font-family: 'Inter', sans-serif;" class="rounded-3 mt-5"/>
-                            </div>
-                            <div class="col-6 mt-4">
-                                <label class="mt-3" style="font-weight: bold;font-size: 15px;font-family: 'Inter', sans-serif;">Trạng thái</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-                                <form:radiobutton path="trangThai" value="0"/>Hoạt động&nbsp;&nbsp;&nbsp;&nbsp;
-                                <form:radiobutton path="trangThai" value="1"/>Ngừng hoạt động
-                            </div>
+                        <div class="col-md-1"></div>
+
+                        <%--row2--%>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <label class="fw-bold">Họ và tên</label>
+                            <form:input path="hoTen" readonly="true" type="text" class="form-control"/>
                         </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <label style="font-weight: bold;font-size: 15px;font-family: 'Inter', sans-serif;">Mật khẩu</label>&nbsp;&nbsp;&nbsp;&nbsp;<form:input type="password" path="matKhau" style="width: 361px;height: 46px" class="rounded-3 mt-5"/>
-                            </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <label class="fw-bold">Địa chỉ</label>
+                            <form:input path="diaChi" type="text" class="form-control"/>
                         </div>
-                        <form:button style="background:#0BA3E5;width: 108px;height: 36px;margin-left: 700px;font-size: 15px;font-family: 'Inter', sans-serif;" class="rounded-3 mt-5"  type="submit" onclick="if(confirm('Bạn có chắc chắn muốn thay đổi thông tin không?')){window.location.href = '/khach-hang/update/${kh.id}';}
-                                                else{alert('Dữ liệu không được thay đổi!')}">Xác nhận</form:button>
+                        <div class="col-md-1"></div>
+
+                        <%--row3--%>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <label class="fw-bold">Email</label>
+                            <form:input readonly="true" path="email" type="text" class="form-control"/>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <label class="fw-bold">Trạng thái</label><br>
+                            <form:radiobutton path="trangThai" value="0"/>Kích hoạt&emsp;
+                            <form:radiobutton path="trangThai" value="1"/>Ngừng kích hoạt
+                        </div>
+                        <div class="col-md-1"></div>
+
+                        <%--row4--%>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <label class="fw-bold">Mật khẩu</label>
+                            <form:input type="password" path="matKhau" class="form-control"/>
+                        </div>
+                        <div class="col-md-7"></div>
+
+                        <%--button--%>
+                        <form:button style="background:#0BA3E5;width: 108px;height: 36px;margin-left: 730px;font-size: 15px;font-family: 'Inter', sans-serif;" class="rounded-3 mt-5"  type="submit"
+                                     onclick="if(confirm('Bạn có chắc chắn muốn thay đổi thông tin không?')){window.location.href = '/khach-hang/update/${kh.id}';}
+                                    else{alert('Dữ liệu không được thay đổi!')}">Cập nhật
+                        </form:button>
+
                     </form:form>
+
                 </div>
             </div>
         </div>
