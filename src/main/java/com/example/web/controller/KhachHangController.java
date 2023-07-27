@@ -94,7 +94,7 @@ public class KhachHangController {
             model.addAttribute("khachHang", khachHang);
             return "/khachhang/update-khach-hang";
         }else {
-            khachHang = khachHangService.getOne(id);
+            khachHang.setNgayTao(khachHangService.getOne(id).getNgayTao());
             khachHang.setId(String.valueOf(id));
             khachHangService.update(khachHang);
             return "redirect:/khach-hang/hien-thi";
